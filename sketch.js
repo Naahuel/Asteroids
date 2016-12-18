@@ -14,9 +14,7 @@ var canPlay = true;
 var shieldTime = 180;
 
 function preload() {
-  for (var i =0; i < 3; i++){
-    laserSoundEffects[i] = loadSound('audio/pew-'+i+'.mp3');
-  }
+  laserSoundEffects[0] = loadSound('audio/laser.mp3');
   for (var i =0; i < 3; i++){
     explosionSoundEffects[i] = loadSound('audio/explosion-'+i+'.mp3');
   }
@@ -87,7 +85,7 @@ function draw() {
       dust.splice(i, 1);
     }
   }
-  
+
   // Render
   background(0);
 
@@ -101,7 +99,7 @@ function draw() {
 
   ship.render();
   hud.render();
-  
+
   for (var i = dust.length - 1; i >= 0; i--) {
     dust[i].render();
   }
