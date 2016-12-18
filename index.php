@@ -32,6 +32,8 @@
     $songs = array(
       '9NcPvmk4vfo',
       'G7HVrOkhuLw',
+      'Uu8WP-Se90w',
+      'L0de0YVBPgs',
     );
   ?>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $songs[rand(0, count($songs)-1)]; ?>?autoplay=1&amp;loop=1" frameborder="0" allowfullscreen></iframe>
