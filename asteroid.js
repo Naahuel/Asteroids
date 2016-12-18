@@ -18,9 +18,9 @@ function Asteroid(pos, r, size) {
   this.size = size;
   switch(size) {
     case 1:
-      this.vel.mult(1.5); break;
-    case 0:
       this.vel.mult(2); break;
+    case 0:
+      this.vel.mult(3.5); break;
   }
 
 
@@ -28,7 +28,7 @@ function Asteroid(pos, r, size) {
   for (var i = 0; i < this.total; i++) {
     this.offset[i] = random(-this.r * 0.2, this.r * 0.5);
   }
-  
+
   // Calculate minimum and maximum radii squared
   this.rmin2 = Math.pow(this.r + min(this.offset), 2);
   this.rmax2 = Math.pow(this.r + max(this.offset), 2);
