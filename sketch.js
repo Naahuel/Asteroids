@@ -21,10 +21,13 @@ function preload() {
     explosionSoundEffects[i] = loadSound('audio/explosion-'+i+'.mp3');
   }
 }
+var minasteroids = 5;
 var score = 0;
-var lives = 3;
+var lives = 4;
 var points = [100, 50, 20]; // small, med, large points
 var level = 0;
+var difficultyincrement = 0.1;
+var difficulty = 1;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -70,7 +73,7 @@ function draw() {
         asteroids.splice(j, 1);
         lasers.splice(i, 1);
         if(asteroids.length == 0) {
-          level++;
+          levelUp();
           spawnAsteroids();
           ship.shields = shieldTime;
         }
@@ -108,9 +111,14 @@ function draw() {
 }
 
 function spawnAsteroids() {
-  for(var i = 0; i < level + 5; i++) {
-    asteroids.push(new Asteroid(null, null, 2));
+  for(var i = 0; i < level + minasteroids; i++) {
+    asteroids.push(new Asteroid(null, null, 2, difficulty));
   }
+}
+
+function levelUp(){
+  level++;
+  difficulty += difficultyincrement;
 }
 
 function cross(v1, v2) {

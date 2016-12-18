@@ -3,7 +3,7 @@
 // http://patreon.com/codingrainbow
 // Code for: https://youtu.be/hacZU523FyM
 
-function Asteroid(pos, r, size) {
+function Asteroid(pos, r, size, speed) {
   if (pos == null) {
     pos = createVector(random(width), random(height));
   }
@@ -12,15 +12,16 @@ function Asteroid(pos, r, size) {
   Entity.call(this, pos.x, pos.y, r);
 
   this.vel = p5.Vector.random2D();
+  this.vel.mult(speed);
   this.total = floor(random(7, 15));
 
   //smaller asteroids go a bit faster
   this.size = size;
   switch(size) {
     case 1:
-      this.vel.mult(2); break;
+      this.vel.mult(1.5*speed); break;
     case 0:
-      this.vel.mult(3.5); break;
+      this.vel.mult(2*speed); break;
   }
 
 
@@ -57,7 +58,7 @@ function Asteroid(pos, r, size) {
 
   this.breakup = function() {
     if(size > 0)
-      return [new Asteroid(this.pos, this.r, this.size-1), new Asteroid(this.pos, this.r, this.size-1)];
+      return [new Asteroid(this.pos, this.r, this.size-1, speed), new Asteroid(this.pos, this.r, this.size-1, speed)];
     else
       return [];
   }
