@@ -18,9 +18,22 @@
       padding: 0;
       margin: 0;
     }
+    iframe{
+      position: absolute;
+      z-index: 0;
+      visibility: none;
+      opacity: 0;
+    }
   </style>
 </head>
 
 <body>
+  <?php
+    $songs = array(
+      '9NcPvmk4vfo',
+      'G7HVrOkhuLw',
+    );
+  ?>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $songs[rand(0, count($songs)-1)]; ?>?autoplay=1&amp;loop=1" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
