@@ -10,11 +10,13 @@ var lasers = [];
 var laserSoundEffects = [];
 var dust = [];
 var explosionSoundEffects = [];
+var explosionDieSoundEffects = [];
 var canPlay = true;
 var shieldTime = 180;
 
 function preload() {
   laserSoundEffects[0] = loadSound('audio/laser.mp3');
+  explosionDieSoundEffects[0] = loadSound('audio/explosion-die.mp3');
   for (var i =0; i < 3; i++){
     explosionSoundEffects[i] = loadSound('audio/explosion-'+i+'.mp3');
   }

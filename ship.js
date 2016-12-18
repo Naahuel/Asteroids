@@ -43,6 +43,7 @@ function Ship(pos, r) {
   this.brokenParts = [];
   this.destroy = function() {
     this.isDestroyed = true;
+    this.playSoundEffect(explosionDieSoundEffects[floor(random() * explosionDieSoundEffects.length)]);
     for(var i = 0; i < 4; i++)
       this.brokenParts[i] = {
         pos: this.pos.copy(),
@@ -50,6 +51,10 @@ function Ship(pos, r) {
         heading: random(0, 360),
         rot: random(-0.07, 0.07)
       };
+  }
+
+  this.playSoundEffect = function(sound){
+    sound.play();
   }
 
   this.hits = function(asteroid) {
