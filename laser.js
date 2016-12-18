@@ -41,10 +41,8 @@ function Laser(spos, angle) {
   }
 
   this.playSoundEffect = function(sound) {
-    // if (!sound.isPlaying()) {
-      sound.amp(0.4);
-      sound.play();
-    // }
+    sound.play();
+    sound.amp(0.4);
   }
 
   this.hits = function(asteroid) {
